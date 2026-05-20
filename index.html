@@ -11,27 +11,26 @@
 <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
 <style>
   :root{
-    --yellow:#E8C547;
-    --yellow-deep:#D7B238;
-    --yellow-soft:#F4DE83;
-    --yellow-cream:#FBF1C9;
-    --blue:#2C4FE0;
-    --blue-deep:#1F3CB4;
-    --blue-soft:#D9E0FA;
-    --ink:#141414;
-    --ink-soft:#3a3a3a;
-    --paper:#FAF6E8;
+    --yellow:#FFB915;
+    --yellow-deep:#E8A800;
+    --yellow-soft:#FFD358;
+    --yellow-cream:#FFD358;
+    --blue:#003F66;
+    --blue-deep:#002A45;
+    --blue-soft:rgba(0,63,102,0.2);
+    --ink:#011B2F;
+    --ink-soft:#1E3A4A;
+    --paper:#002A45;
     --white:#FFFFFF;
   }
   html{scroll-behavior:smooth}
-  body{font-family:'Inter',sans-serif;background:var(--yellow);color:var(--ink);}
+  body{font-family:'Inter',sans-serif;background:var(--ink);color:#fff;}
   .font-display{font-family:'Anton',sans-serif;letter-spacing:-.005em;line-height:.92;text-transform:uppercase;}
   .font-script{font-family:'Caveat Brush',cursive;font-weight:400;}
   .font-archivo{font-family:'Archivo',sans-serif;}
   .eyebrow{font-family:'Archivo',sans-serif;font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:11px;}
   .rule{display:inline-block;width:64px;height:2px;background:currentColor;vertical-align:middle;margin-left:14px;}
 
-  /* halftone effect for placeholder photo blocks */
   .halftone{
     background-color:#1a1a1a;
     background-image:
@@ -48,101 +47,92 @@
   }
 
   .nav-link{position:relative;}
-  .nav-link::after{content:'';position:absolute;left:0;bottom:-4px;height:2px;width:0;background:var(--blue);transition:width .25s;}
+  .nav-link::after{content:'';position:absolute;left:0;bottom:-4px;height:2px;width:0;background:var(--yellow);transition:width .25s;}
   .nav-link:hover::after{width:100%;}
 
-  /* fade-in on scroll */
   .fade-in{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s ease;}
   .fade-in.visible{opacity:1;transform:translateY(0);}
 
-  /* quiz */
   .quiz-option{transition:all .18s;cursor:pointer;}
-  .quiz-option:hover{border-color:var(--blue);background:var(--blue-soft);}
-  .quiz-option.selected{border-color:var(--blue);background:var(--blue-soft);}
+  .quiz-option:hover{border-color:var(--yellow);background:rgba(255,185,21,0.08);}
+  .quiz-option.selected{border-color:var(--yellow);background:rgba(255,185,21,0.08);}
   .quiz-option.correct{border-color:#0f7a3a;background:#d8f2e3;color:#0f3a22;}
   .quiz-option.incorrect{border-color:#b3261e;background:#fbdcd9;color:#62120d;}
 
-  /* tickertape */
   @keyframes scrollLeft{from{transform:translateX(0)}to{transform:translateX(-50%)}}
   .ticker{display:flex;width:max-content;animation:scrollLeft 38s linear infinite;}
   .ticker > *{flex:0 0 auto;}
 
-  /* dotted divider */
   .dotline{background-image:radial-gradient(currentColor 1.2px, transparent 1.6px);background-size:10px 2px;background-repeat:repeat-x;background-position:left center;height:2px;width:100%;}
 
-  /* number tag */
   .numtag{font-family:'Anton',sans-serif;line-height:1;}
 
-  /* card hover */
   .card-hover{transition:transform .25s, box-shadow .25s, background .25s;}
   .card-hover:hover{transform:translateY(-3px);}
 
-  /* stat counter */
   .stat-num{font-variant-numeric:tabular-nums;}
 
-  /* paper card with hard shadow */
-  .hard-shadow{box-shadow:6px 6px 0 0 var(--ink);}
-  .hard-shadow-blue{box-shadow:6px 6px 0 0 var(--blue);}
+  .hard-shadow{box-shadow:6px 6px 0 0 var(--yellow);}
+  .hard-shadow-blue{box-shadow:6px 6px 0 0 var(--yellow-soft);}
   .hard-shadow-yellow{box-shadow:6px 6px 0 0 var(--yellow-deep);}
 
-  /* big diagonal headlines */
-  .skew-tag{display:inline-block;transform:rotate(-2deg);background:var(--blue);color:#fff;padding:.35rem .8rem;}
+  .skew-tag{display:inline-block;transform:rotate(-2deg);background:var(--yellow);color:var(--ink);padding:.35rem .8rem;}
 
-  ::selection{background:var(--blue);color:#fff;}
+  ::selection{background:var(--yellow);color:var(--ink);}
 </style>
 </head>
 <body class="min-h-screen">
 
 <!-- NAV -->
-<nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur" style="background:rgba(232,197,71,.94);border-bottom:1px solid rgba(20,20,20,.15);">
+<nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur" style="background:rgba(1,27,47,.95);border-bottom:1px solid rgba(255,185,21,.18);">
   <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
     <a href="#hero" class="flex items-center gap-2.5">
-      <span class="w-8 h-8 rounded-full flex items-center justify-center" style="background:var(--blue);">
-        <i data-lucide="megaphone" style="width:16px;height:16px;color:#fff;"></i>
+      <span class="w-8 h-8 rounded-full flex items-center justify-center" style="background:var(--yellow);">
+        <i data-lucide="megaphone" style="width:16px;height:16px;color:var(--ink);"></i>
       </span>
-      <span class="font-archivo font-extrabold text-[15px] tracking-tight">Entre Clicks <span style="color:var(--blue);">&amp;</span> Enganos</span>
+      <span class="font-archivo font-extrabold text-[15px] tracking-tight" style="color:#fff;">Entre Clicks <span style="color:var(--yellow);">&amp;</span> Enganos</span>
     </a>
     <div class="hidden md:flex gap-7 text-[13px] font-archivo font-semibold">
-      <a href="#problema" class="nav-link">O Problema</a>
-      <a href="#dados" class="nav-link">Dados</a>
-      <a href="#pesquisa" class="nav-link">Pesquisa</a>
-      <a href="#quiz" class="nav-link">Quiz</a>
-      <a href="#sobre" class="nav-link">Sobre</a>
-      <a href="#creditos" class="nav-link">Créditos</a>
+      <a href="#problema" class="nav-link" style="color:rgba(255,255,255,0.75);">O Problema</a>
+      <a href="#dados" class="nav-link" style="color:rgba(255,255,255,0.75);">Dados</a>
+      <a href="#pesquisa" class="nav-link" style="color:rgba(255,255,255,0.75);">Pesquisa</a>
+      <a href="#quiz" class="nav-link" style="color:rgba(255,255,255,0.75);">Quiz</a>
+      <a href="#sobre" class="nav-link" style="color:rgba(255,255,255,0.75);">Sobre</a>
+      <a href="#creditos" class="nav-link" style="color:rgba(255,255,255,0.75);">Créditos</a>
     </div>
-    <button id="mobile-menu-btn" class="md:hidden"><i data-lucide="menu" style="width:22px;height:22px"></i></button>
+    <button id="mobile-menu-btn" class="md:hidden" style="color:#fff;"><i data-lucide="menu" style="width:22px;height:22px"></i></button>
   </div>
-  <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 flex flex-col gap-3 text-sm font-archivo font-semibold" style="background:var(--yellow);">
-    <a href="#problema">O Problema</a><a href="#dados">Dados</a><a href="#pesquisa">Pesquisa</a><a href="#quiz">Quiz</a><a href="#sobre">Sobre</a><a href="#creditos">Créditos</a>
+  <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 flex flex-col gap-3 text-sm font-archivo font-semibold" style="background:var(--ink);">
+    <a href="#problema" style="color:rgba(255,255,255,0.8);">O Problema</a><a href="#dados" style="color:rgba(255,255,255,0.8);">Dados</a><a href="#pesquisa" style="color:rgba(255,255,255,0.8);">Pesquisa</a><a href="#quiz" style="color:rgba(255,255,255,0.8);">Quiz</a><a href="#sobre" style="color:rgba(255,255,255,0.8);">Sobre</a><a href="#creditos" style="color:rgba(255,255,255,0.8);">Créditos</a>
   </div>
 </nav>
 
 <!-- HERO -->
-<section id="hero" class="relative pt-24 pb-16 md:pt-28 md:pb-20 overflow-hidden" style="background:var(--yellow);">
+<section id="hero" class="relative pt-24 pb-16 md:pt-28 md:pb-20 overflow-hidden" style="background:var(--ink);">
   <div class="max-w-7xl mx-auto px-6">
-    <p class="eyebrow flex items-center" style="color:var(--ink);">Entre Clicks · Projeto Acadêmico <span class="rule"></span></p>
+    <p class="eyebrow flex items-center" style="color:rgba(255,255,255,0.4);">Entre Clicks · Projeto Acadêmico <span class="rule"></span></p>
 
     <div class="grid md:grid-cols-12 gap-8 items-end mt-6 md:mt-8">
       <div class="md:col-span-8">
-        <h1 class="font-display text-[clamp(72px,13vw,200px)]" style="color:var(--blue);">
+        <h1 class="font-display text-[clamp(72px,13vw,200px)]" style="color:var(--yellow);">
           Entre<br>Clicks<br>
           <span style="display:inline-block;">&amp;</span> Enganos
         </h1>
-        <p class="font-script text-white text-[clamp(40px,7vw,88px)] -mt-3 md:-mt-6 leading-none" style="text-shadow:2px 2px 0 rgba(20,20,20,.18);">
+        <p class="font-script text-white text-[clamp(40px,7vw,88px)] -mt-3 md:-mt-6 leading-none" style="text-shadow:2px 2px 0 rgba(0,0,0,.5);">
           vulnerabilidade digital &amp; a&nbsp;terceira idade
         </p>
       </div>
       <div class="md:col-span-4">
         <div class="max-w-sm">
-          <p class="eyebrow mb-3" style="color:var(--ink);">o que é isto</p>
-          <p class="text-[15px] leading-relaxed font-archivo" style="color:var(--ink);">
+          <p class="eyebrow mb-3" style="color:rgba(255,255,255,0.4);">o que é isto</p>
+          <p class="text-[15px] leading-relaxed font-archivo" style="color:rgba(255,255,255,0.8);">
             Como golpes virtuais, fake&nbsp;news e a exclusão digital afetam a vida e a saúde das pessoas idosas no Brasil — e o que podemos fazer sobre isso.
           </p>
           <div class="flex flex-wrap gap-3 mt-6">
-            <a href="#quiz" class="inline-flex items-center gap-2 px-5 py-3 font-archivo font-bold text-[14px] hard-shadow" style="background:var(--blue);color:#fff;">
+            <a href="#quiz" class="inline-flex items-center gap-2 px-5 py-3 font-archivo font-bold text-[14px] hard-shadow" style="background:var(--yellow);color:var(--ink);">
               Fazer o Quiz <i data-lucide="arrow-right" style="width:16px;height:16px"></i>
             </a>
-            <a href="#problema" class="inline-flex items-center gap-2 px-5 py-3 font-archivo font-bold text-[14px] border-2" style="background:transparent;color:var(--ink);border-color:var(--ink);">
+            <a href="#problema" class="inline-flex items-center gap-2 px-5 py-3 font-archivo font-bold text-[14px] border-2" style="background:transparent;color:#fff;border-color:rgba(255,255,255,0.3);">
               Ver o Problema
             </a>
           </div>
@@ -151,29 +141,29 @@
     </div>
 
     <!-- meta strip -->
-    <div class="mt-12 md:mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 border-t-2 border-b-2 py-5" style="border-color:var(--ink);">
+    <div class="mt-12 md:mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 border-t-2 border-b-2 py-5" style="border-color:rgba(255,255,255,0.1);">
       <div>
-        <p class="eyebrow opacity-70">edição</p>
-        <p class="font-archivo font-bold text-[15px] mt-1">v.01 · 2025</p>
+        <p class="eyebrow" style="color:rgba(255,255,255,0.38);">edição</p>
+        <p class="font-archivo font-bold text-[15px] mt-1" style="color:rgba(255,255,255,0.9);">v.01 · 2025</p>
       </div>
       <div>
-        <p class="eyebrow opacity-70">formato</p>
-        <p class="font-archivo font-bold text-[15px] mt-1">Site + Documentário</p>
+        <p class="eyebrow" style="color:rgba(255,255,255,0.38);">formato</p>
+        <p class="font-archivo font-bold text-[15px] mt-1" style="color:rgba(255,255,255,0.9);">Site + Documentário</p>
       </div>
       <div>
-        <p class="eyebrow opacity-70">duração</p>
-        <p class="font-archivo font-bold text-[15px] mt-1">6–20 minutos</p>
+        <p class="eyebrow" style="color:rgba(255,255,255,0.38);">duração</p>
+        <p class="font-archivo font-bold text-[15px] mt-1" style="color:rgba(255,255,255,0.9);">6–20 minutos</p>
       </div>
       <div>
-        <p class="eyebrow opacity-70">base</p>
-        <p class="font-archivo font-bold text-[15px] mt-1">Revisão científica</p>
+        <p class="eyebrow" style="color:rgba(255,255,255,0.38);">base</p>
+        <p class="font-archivo font-bold text-[15px] mt-1" style="color:rgba(255,255,255,0.9);">Revisão científica</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- TICKER -->
-<div class="py-3 border-y-2 overflow-hidden" style="background:var(--blue);color:#fff;border-color:var(--ink);">
+<div class="py-3 border-y-2 overflow-hidden" style="background:var(--yellow);color:var(--ink);border-color:rgba(0,0,0,0.15);">
   <div class="ticker font-display text-[22px] tracking-wider">
     <span class="px-6">★ FAKE NEWS</span><span class="px-6">★ GOLPE DO PIX</span><span class="px-6">★ EXCLUSÃO DIGITAL</span><span class="px-6">★ R$ 6,3 BI DESVIADOS</span><span class="px-6">★ 4 MILHÕES DE VÍTIMAS</span><span class="px-6">★ INSS</span><span class="px-6">★ WHATSAPP</span><span class="px-6">★ DEEPFAKE</span><span class="px-6">★ LETRAMENTO DIGITAL</span>
     <span class="px-6">★ FAKE NEWS</span><span class="px-6">★ GOLPE DO PIX</span><span class="px-6">★ EXCLUSÃO DIGITAL</span><span class="px-6">★ R$ 6,3 BI DESVIADOS</span><span class="px-6">★ 4 MILHÕES DE VÍTIMAS</span><span class="px-6">★ INSS</span><span class="px-6">★ WHATSAPP</span><span class="px-6">★ DEEPFAKE</span><span class="px-6">★ LETRAMENTO DIGITAL</span>
@@ -181,21 +171,21 @@
 </div>
 
 <!-- STATS BANNER -->
-<section class="py-16 md:py-20" style="background:var(--yellow);">
+<section class="py-16 md:py-20" style="background:var(--paper);">
   <div class="max-w-7xl mx-auto px-6">
     <div class="flex items-end justify-between flex-wrap gap-4 mb-10">
       <div>
-        <p class="eyebrow" style="color:var(--blue);">Projeção IBGE · 2070</p>
-        <h2 class="font-display text-[clamp(40px,6.5vw,86px)] mt-2" style="color:var(--ink);">
-          o brasil <span style="color:var(--blue);">envelhece</span> rápido
+        <p class="eyebrow" style="color:var(--yellow);">Projeção IBGE · 2070</p>
+        <h2 class="font-display text-[clamp(40px,6.5vw,86px)] mt-2" style="color:#fff;">
+          o brasil <span style="color:var(--yellow);">envelhece</span> rápido
         </h2>
       </div>
-      <p class="font-script text-[40px] md:text-[56px] text-white leading-none" style="text-shadow:2px 2px 0 rgba(20,20,20,.18);">e a&nbsp;internet&nbsp;não&nbsp;espera.</p>
+      <p class="font-script text-[40px] md:text-[56px] text-white leading-none" style="text-shadow:2px 2px 0 rgba(0,0,0,.4);">e a&nbsp;internet&nbsp;não&nbsp;espera.</p>
     </div>
 
     <div class="grid md:grid-cols-3 gap-6">
       <div class="fade-in p-7 hard-shadow" style="background:#fff;">
-        <p class="eyebrow opacity-60">01</p>
+        <p class="eyebrow opacity-60" style="color:var(--ink-soft);">01</p>
         <p class="font-display text-[clamp(72px,11vw,140px)] stat-num leading-none mt-2" style="color:var(--blue);">38%</p>
         <p class="font-archivo text-[14px] mt-3 leading-snug" style="color:var(--ink-soft);">
           da população brasileira terá 60 anos ou mais — um salto de 33 para 75 milhões de idosos.
@@ -209,7 +199,7 @@
         </p>
       </div>
       <div class="fade-in p-7 hard-shadow" style="background:#fff;">
-        <p class="eyebrow opacity-60">03</p>
+        <p class="eyebrow opacity-60" style="color:var(--ink-soft);">03</p>
         <p class="font-display text-[clamp(56px,8.5vw,112px)] stat-num leading-none mt-2" style="color:var(--blue);">R$ 6,3<span class="text-[.5em]"> bi</span></p>
         <p class="font-archivo text-[14px] mt-3 leading-snug" style="color:var(--ink-soft);">
           desviados de aposentados e pensionistas (2019–2024).
@@ -220,41 +210,41 @@
 </section>
 
 <!-- O PROBLEMA -->
-<section id="problema" class="py-20 md:py-24" style="background:var(--paper);">
+<section id="problema" class="py-20 md:py-24" style="background:var(--ink);">
   <div class="max-w-7xl mx-auto px-6">
     <div class="grid md:grid-cols-12 gap-8 items-start mb-14">
       <div class="md:col-span-7 fade-in">
-        <p class="eyebrow" style="color:var(--blue);">01 · O Problema</p>
-        <h2 class="font-display text-[clamp(48px,7vw,108px)] mt-3 leading-none" style="color:var(--ink);">
-          Excesso <span class="font-script normal-case" style="color:var(--blue);font-family:'Caveat Brush',cursive;letter-spacing:0;">&amp;</span> escassez:
+        <p class="eyebrow" style="color:var(--yellow);">01 · O Problema</p>
+        <h2 class="font-display text-[clamp(48px,7vw,108px)] mt-3 leading-none" style="color:#fff;">
+          Excesso <span class="font-script normal-case" style="color:var(--yellow);font-family:'Caveat Brush',cursive;letter-spacing:0;">&amp;</span> escassez:
         </h2>
-        <p class="font-script text-[clamp(36px,5.5vw,72px)] -mt-2 leading-none" style="color:var(--blue);">dois lados da mesma crise</p>
+        <p class="font-script text-[clamp(36px,5.5vw,72px)] -mt-2 leading-none" style="color:var(--yellow-soft);">dois lados da mesma crise</p>
       </div>
       <div class="md:col-span-5 fade-in">
-        <p class="font-archivo text-[15px] md:text-[16px] leading-relaxed mt-2" style="color:var(--ink-soft);">
+        <p class="font-archivo text-[15px] md:text-[16px] leading-relaxed mt-2" style="color:rgba(255,255,255,0.68);">
           A vulnerabilidade digital dos idosos nasce de uma contradição: há informação demais e suporte de menos. Esses dois fatores, juntos, criam um terreno fértil para golpes e desinformação.
         </p>
       </div>
     </div>
 
     <div class="grid md:grid-cols-2 gap-6">
-      <article class="fade-in card-hover p-8 hard-shadow" style="background:var(--yellow);border:2px solid var(--ink);">
+      <article class="fade-in card-hover p-8 hard-shadow" style="background:var(--yellow);border:2px solid rgba(0,0,0,0.12);">
         <div class="flex items-center gap-3 mb-5">
           <span class="numtag text-[44px]" style="color:var(--blue);">01</span>
           <span class="dotline flex-1" style="color:var(--ink);"></span>
           <i data-lucide="alert-triangle" style="width:22px;height:22px;color:var(--blue);"></i>
         </div>
         <h3 class="font-display text-[34px] md:text-[42px] leading-none" style="color:var(--ink);">Excesso<br>informacional</h3>
-        <p class="font-archivo text-[14px] leading-relaxed mt-4" style="color:var(--ink-soft);">
+        <p class="font-archivo text-[14px] leading-relaxed mt-4" style="color:var(--ink);">
           A internet produz um volume avassalador de conteúdo — muito dele falso. Fake news se propagam até <strong>70% mais rápido</strong> do que notícias verdadeiras (Vosoughi, Roy &amp; Aral, 2018). Idosos são especialmente vulneráveis à "ilusão da verdade": quanto mais veem uma informação, mais tendem a acreditá-la.
         </p>
         <p class="eyebrow mt-5" style="color:var(--blue);">Desinformação · Fake News · Manipulação</p>
       </article>
 
-      <article class="fade-in card-hover p-8 hard-shadow-yellow" style="background:var(--blue);color:#fff;border:2px solid var(--ink);">
+      <article class="fade-in card-hover p-8 hard-shadow-yellow" style="background:var(--blue);color:#fff;border:2px solid rgba(0,0,0,0.12);">
         <div class="flex items-center gap-3 mb-5">
           <span class="numtag text-[44px]" style="color:var(--yellow);">02</span>
-          <span class="dotline flex-1" style="color:rgba(255,255,255,.6);"></span>
+          <span class="dotline flex-1" style="color:rgba(255,255,255,.35);"></span>
           <i data-lucide="users" style="width:22px;height:22px;color:var(--yellow);"></i>
         </div>
         <h3 class="font-display text-[34px] md:text-[42px] leading-none">Escassez<br>de suporte</h3>
@@ -265,15 +255,15 @@
       </article>
     </div>
 
-    <div class="mt-8 fade-in p-8 md:p-10 hard-shadow" style="background:#fff;border:2px solid var(--ink);">
+    <div class="mt-8 fade-in p-8 md:p-10 hard-shadow" style="background:#fff;border:2px solid rgba(0,0,0,0.06);">
       <div class="flex flex-col md:flex-row gap-6 items-start">
-        <span class="inline-flex w-14 h-14 rounded-full items-center justify-center flex-shrink-0" style="background:var(--yellow);border:2px solid var(--ink);">
-          <i data-lucide="brain" style="width:24px;height:24px;color:var(--blue);"></i>
+        <span class="inline-flex w-14 h-14 rounded-full items-center justify-center flex-shrink-0" style="background:var(--yellow);border:2px solid rgba(0,0,0,0.08);">
+          <i data-lucide="brain" style="width:24px;height:24px;color:var(--ink);"></i>
         </span>
         <div>
           <p class="eyebrow mb-2" style="color:var(--blue);">Nota cognitiva</p>
           <p class="font-archivo text-[15px] leading-relaxed" style="color:var(--ink-soft);">
-            O declínio da <strong>"memória de origem"</strong> — a capacidade de lembrar onde ou como uma informação foi adquirida — comprometido pelo envelhecimento, dificulta a avaliação da confiabilidade das fontes. Somado à tendência natural de confiar em conteúdos familiares e intuitivos, isso cria uma vulnerabilidade cognitiva explorada por golpistas e criadores de desinformação.
+            O declínio da <strong style="color:var(--ink);">"memória de origem"</strong> — a capacidade de lembrar onde ou como uma informação foi adquirida — comprometido pelo envelhecimento, dificulta a avaliação da confiabilidade das fontes. Somado à tendência natural de confiar em conteúdos familiares e intuitivos, isso cria uma vulnerabilidade cognitiva explorada por golpistas e criadores de desinformação.
           </p>
           <p class="font-archivo text-[12px] italic mt-3" style="color:var(--ink-soft);opacity:.7;">Fonte: Brashier &amp; Schacter, 2020 — <em>Aging in an Era of Fake News</em></p>
         </div>
@@ -283,90 +273,88 @@
 </section>
 
 <!-- DADOS -->
-<section id="dados" class="py-20 md:py-24" style="background:var(--yellow);">
+<section id="dados" class="py-20 md:py-24" style="background:var(--paper);">
   <div class="max-w-7xl mx-auto px-6">
     <div class="flex items-end justify-between flex-wrap gap-6 mb-12">
       <div class="fade-in">
-        <p class="eyebrow" style="color:var(--blue);">02 · Dados</p>
-        <h2 class="font-display text-[clamp(48px,7vw,108px)] mt-3 leading-none" style="color:var(--ink);">números que<br><span style="color:var(--blue);">precisam</span> ser&nbsp;vistos</h2>
+        <p class="eyebrow" style="color:var(--yellow);">02 · Dados</p>
+        <h2 class="font-display text-[clamp(48px,7vw,108px)] mt-3 leading-none" style="color:#fff;">números que<br><span style="color:var(--yellow);">precisam</span> ser&nbsp;vistos</h2>
       </div>
-      <p class="font-archivo text-[14px] max-w-xs fade-in" style="color:var(--ink-soft);">
+      <p class="font-archivo text-[14px] max-w-xs fade-in" style="color:rgba(255,255,255,0.6);">
         Baseados em estudos científicos revisados por pares, publicados entre 2020 e 2025.
       </p>
     </div>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-      <!-- card template repeated -->
-      <div class="fade-in p-6 hard-shadow" style="background:#fff;border:2px solid var(--ink);">
-        <p class="eyebrow opacity-50">01</p>
+      <div class="fade-in p-6 hard-shadow" style="background:#fff;border:2px solid rgba(0,0,0,0.05);">
+        <p class="eyebrow opacity-50" style="color:var(--ink-soft);">01</p>
         <p class="font-display text-[72px] leading-none mt-2 stat-num" style="color:var(--blue);">100%</p>
         <p class="font-archivo text-[13px] mt-3 leading-snug" style="color:var(--ink-soft);">dos idosos entrevistados afirmaram que a internet ajuda no dia a dia.</p>
-        <p class="font-archivo text-[10px] mt-3 opacity-60">Borges, Moura &amp; Gomes, 2024 (n=61)</p>
+        <p class="font-archivo text-[10px] mt-3 opacity-60" style="color:var(--ink-soft);">Borges, Moura &amp; Gomes, 2024 (n=61)</p>
       </div>
-      <div class="fade-in p-6 hard-shadow" style="background:#fff;border:2px solid var(--ink);">
-        <p class="eyebrow opacity-50">02</p>
+      <div class="fade-in p-6 hard-shadow" style="background:#fff;border:2px solid rgba(0,0,0,0.05);">
+        <p class="eyebrow opacity-50" style="color:var(--ink-soft);">02</p>
         <p class="font-display text-[72px] leading-none mt-2 stat-num" style="color:var(--blue);">62,2%</p>
         <p class="font-archivo text-[13px] mt-3 leading-snug" style="color:var(--ink-soft);">buscam familiares como principal fonte de ajuda para usar a internet.</p>
-        <p class="font-archivo text-[10px] mt-3 opacity-60">Borges, Moura &amp; Gomes, 2024</p>
+        <p class="font-archivo text-[10px] mt-3 opacity-60" style="color:var(--ink-soft);">Borges, Moura &amp; Gomes, 2024</p>
       </div>
-      <div class="fade-in p-6 hard-shadow" style="background:var(--blue);color:#fff;border:2px solid var(--ink);">
+      <div class="fade-in p-6 hard-shadow" style="background:var(--blue);color:#fff;border:2px solid rgba(0,0,0,0.05);">
         <p class="eyebrow" style="color:var(--yellow);">03</p>
         <p class="font-display text-[72px] leading-none mt-2 stat-num" style="color:var(--yellow);">40,9%</p>
         <p class="font-archivo text-[13px] mt-3 leading-snug opacity-95">relatam adaptação, conhecimento e aprendizado como principal desafio.</p>
         <p class="font-archivo text-[10px] mt-3 opacity-70">Borges, Moura &amp; Gomes, 2024</p>
       </div>
-      <div class="fade-in p-6 hard-shadow" style="background:#fff;border:2px solid var(--ink);">
-        <p class="eyebrow opacity-50">04</p>
+      <div class="fade-in p-6 hard-shadow" style="background:#fff;border:2px solid rgba(0,0,0,0.05);">
+        <p class="eyebrow opacity-50" style="color:var(--ink-soft);">04</p>
         <p class="font-display text-[72px] leading-none mt-2 stat-num" style="color:var(--blue);">18%</p>
         <p class="font-archivo text-[13px] mt-3 leading-snug" style="color:var(--ink-soft);">apontam a veracidade das informações como algo urgente a melhorar na internet.</p>
-        <p class="font-archivo text-[10px] mt-3 opacity-60">Borges, Moura &amp; Gomes, 2024</p>
+        <p class="font-archivo text-[10px] mt-3 opacity-60" style="color:var(--ink-soft);">Borges, Moura &amp; Gomes, 2024</p>
       </div>
-      <div class="fade-in p-6 hard-shadow" style="background:#fff;border:2px solid var(--ink);">
-        <p class="eyebrow opacity-50">05</p>
+      <div class="fade-in p-6 hard-shadow" style="background:#fff;border:2px solid rgba(0,0,0,0.05);">
+        <p class="eyebrow opacity-50" style="color:var(--ink-soft);">05</p>
         <p class="font-display text-[72px] leading-none mt-2 stat-num" style="color:var(--blue);">3,2%</p>
         <p class="font-archivo text-[13px] mt-3 leading-snug" style="color:var(--ink-soft);">dos idosos com 80+ anos participaram — evidência da exclusão digital crescente com a idade.</p>
-        <p class="font-archivo text-[10px] mt-3 opacity-60">Borges, Moura &amp; Gomes, 2024</p>
+        <p class="font-archivo text-[10px] mt-3 opacity-60" style="color:var(--ink-soft);">Borges, Moura &amp; Gomes, 2024</p>
       </div>
-      <div class="fade-in p-6 hard-shadow" style="background:#fff;border:2px solid var(--ink);">
-        <p class="eyebrow opacity-50">06</p>
+      <div class="fade-in p-6 hard-shadow" style="background:#fff;border:2px solid rgba(0,0,0,0.05);">
+        <p class="eyebrow opacity-50" style="color:var(--ink-soft);">06</p>
         <p class="font-display text-[72px] leading-none mt-2 stat-num" style="color:var(--blue);">32,4%</p>
         <p class="font-archivo text-[13px] mt-3 leading-snug" style="color:var(--ink-soft);">dos beneficiários do INSS já usaram ferramenta digital — os demais ficaram expostos à fraude.</p>
-        <p class="font-archivo text-[10px] mt-3 opacity-60">CGU / Instituto Longevidade MAG, 2025</p>
+        <p class="font-archivo text-[10px] mt-3 opacity-60" style="color:var(--ink-soft);">CGU / Instituto Longevidade MAG, 2025</p>
       </div>
-      <div class="fade-in p-6 hard-shadow" style="background:var(--blue);color:#fff;border:2px solid var(--ink);">
+      <div class="fade-in p-6 hard-shadow" style="background:var(--blue);color:#fff;border:2px solid rgba(0,0,0,0.05);">
         <p class="eyebrow" style="color:var(--yellow);">07</p>
         <p class="font-display text-[72px] leading-none mt-2 stat-num" style="color:var(--yellow);">4M+</p>
         <p class="font-archivo text-[13px] mt-3 leading-snug opacity-95">aposentados e pensionistas afetados pela fraude do INSS (2019–2024).</p>
         <p class="font-archivo text-[10px] mt-3 opacity-70">PF &amp; CGU, 2025</p>
       </div>
-      <div class="fade-in p-6 hard-shadow" style="background:#fff;border:2px solid var(--ink);">
-        <p class="eyebrow opacity-50">08</p>
+      <div class="fade-in p-6 hard-shadow" style="background:#fff;border:2px solid rgba(0,0,0,0.05);">
+        <p class="eyebrow opacity-50" style="color:var(--ink-soft);">08</p>
         <p class="font-display text-[72px] leading-none mt-2 stat-num" style="color:var(--blue);">70%</p>
         <p class="font-archivo text-[13px] mt-3 leading-snug" style="color:var(--ink-soft);">dos anúncios fraudulentos nas redes Meta usaram Inteligência Artificial para enganar.</p>
-        <p class="font-archivo text-[10px] mt-3 opacity-60">NetLab/UFRJ, 2025</p>
+        <p class="font-archivo text-[10px] mt-3 opacity-60" style="color:var(--ink-soft);">NetLab/UFRJ, 2025</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- PESQUISA -->
-<section id="pesquisa" class="py-20 md:py-24" style="background:var(--paper);">
+<section id="pesquisa" class="py-20 md:py-24" style="background:var(--ink);">
   <div class="max-w-7xl mx-auto px-6">
     <div class="grid md:grid-cols-12 gap-8 items-end mb-12">
       <div class="md:col-span-8 fade-in">
-        <p class="eyebrow" style="color:var(--blue);">03 · Pesquisa</p>
-        <h2 class="font-display text-[clamp(48px,7vw,108px)] mt-3 leading-none" style="color:var(--ink);">
-          pesquisas que<br><span style="color:var(--blue);">fundamentam</span> este projeto
+        <p class="eyebrow" style="color:var(--yellow);">03 · Pesquisa</p>
+        <h2 class="font-display text-[clamp(48px,7vw,108px)] mt-3 leading-none" style="color:#fff;">
+          pesquisas que<br><span style="color:var(--yellow);">fundamentam</span> este projeto
         </h2>
       </div>
-      <p class="md:col-span-4 font-archivo text-[14px] fade-in" style="color:var(--ink-soft);">
+      <p class="md:col-span-4 font-archivo text-[14px] fade-in" style="color:rgba(255,255,255,0.6);">
         Este projeto se baseia em artigos científicos revisados por pares, publicados em revistas nacionais e internacionais entre 2020 e 2025.
       </p>
     </div>
 
     <div class="grid md:grid-cols-2 gap-5">
-      <!-- ref cards -->
-      <article class="fade-in p-7 hard-shadow-blue" style="background:#fff;border:2px solid var(--ink);">
+      <article class="fade-in p-7 hard-shadow-blue" style="background:#fff;border:2px solid rgba(0,0,0,0.05);">
         <div class="flex items-start justify-between gap-4">
           <span class="numtag text-[38px]" style="color:var(--blue);">01</span>
           <span class="eyebrow" style="color:var(--ink-soft);">2024</span>
@@ -376,7 +364,7 @@
         <p class="font-archivo text-[11px] mt-1" style="color:var(--ink-soft);opacity:.7;">Estudos Interdisciplinares sobre o Envelhecimento · DOI: 10.22456/2316-2171.135837</p>
       </article>
 
-      <article class="fade-in p-7 hard-shadow-blue" style="background:#fff;border:2px solid var(--ink);">
+      <article class="fade-in p-7 hard-shadow-blue" style="background:#fff;border:2px solid rgba(0,0,0,0.05);">
         <div class="flex items-start justify-between gap-4">
           <span class="numtag text-[38px]" style="color:var(--blue);">02</span>
           <span class="eyebrow" style="color:var(--ink-soft);">2025</span>
@@ -386,7 +374,7 @@
         <p class="font-archivo text-[11px] mt-1" style="color:var(--ink-soft);opacity:.7;">Revista ARACÊ · v.7, n.8</p>
       </article>
 
-      <article class="fade-in p-7 hard-shadow-blue" style="background:#fff;border:2px solid var(--ink);">
+      <article class="fade-in p-7 hard-shadow-blue" style="background:#fff;border:2px solid rgba(0,0,0,0.05);">
         <div class="flex items-start justify-between gap-4">
           <span class="numtag text-[38px]" style="color:var(--blue);">03</span>
           <span class="eyebrow" style="color:var(--ink-soft);">2020</span>
@@ -396,7 +384,7 @@
         <p class="font-archivo text-[11px] mt-1" style="color:var(--ink-soft);opacity:.7;">Revista Kairós-Gerontologia · v.23, n. especial 28</p>
       </article>
 
-      <article class="fade-in p-7 hard-shadow-blue" style="background:#fff;border:2px solid var(--ink);">
+      <article class="fade-in p-7 hard-shadow-blue" style="background:#fff;border:2px solid rgba(0,0,0,0.05);">
         <div class="flex items-start justify-between gap-4">
           <span class="numtag text-[38px]" style="color:var(--blue);">04</span>
           <span class="eyebrow" style="color:var(--ink-soft);">2020</span>
@@ -406,7 +394,7 @@
         <p class="font-archivo text-[11px] mt-1" style="color:var(--ink-soft);opacity:.7;">Pesquisa Brasileira em Ciência da Informação e Biblioteconomia · v.15, n.2</p>
       </article>
 
-      <article class="fade-in p-7 hard-shadow-blue" style="background:#fff;border:2px solid var(--ink);">
+      <article class="fade-in p-7 hard-shadow-blue" style="background:#fff;border:2px solid rgba(0,0,0,0.05);">
         <div class="flex items-start justify-between gap-4">
           <span class="numtag text-[38px]" style="color:var(--blue);">05</span>
           <span class="eyebrow" style="color:var(--ink-soft);">2025</span>
@@ -416,7 +404,7 @@
         <p class="font-archivo text-[11px] mt-1" style="color:var(--ink-soft);opacity:.7;">Revista REASE · v.11, n.9 · ISSN: 2675-3375</p>
       </article>
 
-      <article class="fade-in p-7 hard-shadow-blue" style="background:#fff;border:2px solid var(--ink);">
+      <article class="fade-in p-7 hard-shadow-blue" style="background:#fff;border:2px solid rgba(0,0,0,0.05);">
         <div class="flex items-start justify-between gap-4">
           <span class="numtag text-[38px]" style="color:var(--blue);">06</span>
           <span class="eyebrow" style="color:var(--ink-soft);">2020</span>
@@ -430,35 +418,33 @@
 </section>
 
 <!-- QUIZ -->
-<section id="quiz" class="py-20 md:py-24 relative overflow-hidden" style="background:var(--yellow);">
-  <!-- decorative halftone phone block, like the IG post -->
-  <div class="absolute right-[-60px] bottom-[-40px] w-[280px] h-[280px] hidden lg:block opacity-30 halftone rounded-full"></div>
+<section id="quiz" class="py-20 md:py-24 relative overflow-hidden" style="background:var(--paper);">
+  <div class="absolute right-[-60px] bottom-[-40px] w-[280px] h-[280px] hidden lg:block opacity-15 halftone rounded-full"></div>
 
   <div class="max-w-4xl mx-auto px-6 relative">
     <div class="text-center mb-10 fade-in">
-      <p class="eyebrow" style="color:var(--blue);">04 · Quiz</p>
-      <h2 class="font-display text-[clamp(48px,7vw,108px)] mt-3 leading-none" style="color:var(--ink);">
+      <p class="eyebrow" style="color:var(--yellow);">04 · Quiz</p>
+      <h2 class="font-display text-[clamp(48px,7vw,108px)] mt-3 leading-none" style="color:#fff;">
         você saberia<br>identificar
       </h2>
-      <p class="font-script text-[clamp(40px,6vw,80px)] leading-none -mt-1" style="color:var(--blue);">um golpe digital?</p>
-      <p class="font-archivo text-[14px] max-w-xl mx-auto mt-6" style="color:var(--ink-soft);">
+      <p class="font-script text-[clamp(40px,6vw,80px)] leading-none -mt-1" style="color:var(--yellow);">um golpe digital?</p>
+      <p class="font-archivo text-[14px] max-w-xl mx-auto mt-6" style="color:rgba(255,255,255,0.62);">
         Teste seus conhecimentos sobre situações reais de golpes e fake news que afetam pessoas idosas. Cada pergunta é baseada em casos documentados pela pesquisa científica.
       </p>
     </div>
 
-    <div id="quiz-container" class="p-7 md:p-10 hard-shadow" style="background:#fff;border:2px solid var(--ink);">
+    <div id="quiz-container" class="p-7 md:p-10 hard-shadow" style="background:#fff;border:2px solid rgba(0,0,0,0.05);">
       <div id="quiz-progress" class="flex items-center justify-between mb-6">
         <span id="quiz-progress-text" class="eyebrow" style="color:var(--blue);">Pergunta 1 de 6</span>
         <span id="quiz-score" class="eyebrow" style="color:var(--ink-soft);">Pontos: 0</span>
       </div>
-      <!-- progress bar -->
       <div class="w-full h-1.5 mb-6" style="background:rgba(20,20,20,.08);">
-        <div id="quiz-bar" class="h-full transition-all" style="width:16.66%;background:var(--blue);"></div>
+        <div id="quiz-bar" class="h-full transition-all" style="width:16.66%;background:var(--yellow);"></div>
       </div>
       <div id="quiz-question-area"></div>
       <div id="quiz-result" class="hidden text-center py-6">
-        <div class="w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center" style="background:var(--yellow);border:2px solid var(--ink);">
-          <i data-lucide="award" style="width:36px;height:36px;color:var(--blue)"></i>
+        <div class="w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center" style="background:var(--yellow);border:2px solid rgba(0,0,0,0.08);">
+          <i data-lucide="award" style="width:36px;height:36px;color:var(--ink)"></i>
         </div>
         <p class="eyebrow" style="color:var(--blue);">Resultado</p>
         <h3 class="font-display text-[56px] md:text-[72px] leading-none mt-1" style="color:var(--ink);">parabéns!</h3>
@@ -466,7 +452,7 @@
         <p id="quiz-result-msg" class="font-archivo text-[15px] mt-3 max-w-md mx-auto" style="color:var(--ink-soft);">
           Você demonstrou boa consciência sobre segurança digital. Compartilhe esse conhecimento com quem você ama!
         </p>
-        <button id="quiz-restart-btn" class="mt-6 inline-flex items-center gap-2 px-6 py-3 font-archivo font-bold text-[14px] hard-shadow" style="background:var(--blue);color:#fff;">
+        <button id="quiz-restart-btn" class="mt-6 inline-flex items-center gap-2 px-6 py-3 font-archivo font-bold text-[14px] hard-shadow" style="background:var(--yellow);color:var(--ink);">
           Fazer novamente <i data-lucide="refresh-cw" style="width:16px;height:16px"></i>
         </button>
       </div>
@@ -475,18 +461,18 @@
 </section>
 
 <!-- SOBRE -->
-<section id="sobre" class="py-20 md:py-24" style="background:var(--paper);">
+<section id="sobre" class="py-20 md:py-24" style="background:var(--ink);">
   <div class="max-w-7xl mx-auto px-6">
     <div class="grid md:grid-cols-12 gap-10 items-start">
       <div class="md:col-span-7 fade-in">
-        <p class="eyebrow" style="color:var(--blue);">05 · Sobre</p>
-        <h2 class="font-display text-[clamp(48px,7vw,108px)] mt-3 leading-none" style="color:var(--ink);">
+        <p class="eyebrow" style="color:var(--yellow);">05 · Sobre</p>
+        <h2 class="font-display text-[clamp(48px,7vw,108px)] mt-3 leading-none" style="color:#fff;">
           uma proposta de
         </h2>
-        <p class="font-script text-[clamp(40px,6vw,84px)] -mt-1 leading-none" style="color:var(--blue);">conscientização</p>
+        <p class="font-script text-[clamp(40px,6vw,84px)] -mt-1 leading-none" style="color:var(--yellow);">conscientização</p>
 
-        <div class="mt-7 space-y-4 font-archivo text-[15px] leading-relaxed" style="color:var(--ink-soft);">
-          <p>Este projeto acadêmico propõe a criação de um <strong>mini documentário (6–10 minutos)</strong> acompanhado deste website interativo, abordando a vulnerabilidade digital das pessoas idosas no Brasil.</p>
+        <div class="mt-7 space-y-4 font-archivo text-[15px] leading-relaxed" style="color:rgba(255,255,255,0.72);">
+          <p>Este projeto acadêmico propõe a criação de um <strong style="color:#fff;">mini documentário (6–10 minutos)</strong> acompanhado deste website interativo, abordando a vulnerabilidade digital das pessoas idosas no Brasil.</p>
           <p>Com base em revisão sistemática da literatura científica, o projeto explora os fatores que tornam os idosos mais susceptíveis a golpes e fake news — cognitivos, emocionais e sociais — e apresenta caminhos de proteção.</p>
           <p>A proposta reforça que estratégias educativas humanizadas e adaptadas à realidade dos idosos são essenciais para promover a inclusão digital, a autonomia e um envelhecimento ativo e saudável.</p>
         </div>
@@ -494,12 +480,11 @@
 
       <!-- IG-style poster placeholder -->
       <div class="md:col-span-5 fade-in">
-        <div class="relative p-7 hard-shadow" style="background:var(--yellow);border:2px solid var(--ink);aspect-ratio:4/5;">
-          <p class="eyebrow flex items-center" style="color:#fff;">Entre Clicks <span class="rule"></span></p>
+        <div class="relative p-7 hard-shadow" style="background:var(--yellow);border:2px solid rgba(0,0,0,0.1);aspect-ratio:4/5;">
+          <p class="eyebrow flex items-center" style="color:var(--ink);">Entre Clicks <span class="rule" style="background:var(--ink);"></span></p>
           <h3 class="font-display text-[clamp(48px,6vw,84px)] leading-[.88] mt-3" style="color:var(--blue);">4 dicas<br>de como</h3>
-          <p class="font-script text-[clamp(28px,3.4vw,46px)] leading-none -mt-1" style="color:#fff;text-shadow:1px 1px 0 rgba(20,20,20,.18);">evitar golpes digitais</p>
-          <p class="eyebrow mt-5 max-w-[180px]" style="color:#fff;">para usar a internet com mais segurança</p>
-          <!-- halftone hands+phone placeholder -->
+          <p class="font-script text-[clamp(28px,3.4vw,46px)] leading-none -mt-1" style="color:var(--ink);">evitar golpes digitais</p>
+          <p class="eyebrow mt-5 max-w-[180px]" style="color:var(--ink);opacity:0.6;">para usar a internet com mais segurança</p>
           <div class="absolute bottom-0 left-0 right-0 mx-7 h-[40%] flex items-end justify-center">
             <div class="halftone w-[55%] h-full rounded-t-[28px] flex items-end justify-center" style="border:2px solid var(--ink);border-bottom:0;">
               <p class="font-archivo text-[10px] uppercase tracking-widest text-white/80 mb-3">[ placeholder · foto ]</p>
@@ -511,31 +496,31 @@
 
     <!-- pillars -->
     <div class="mt-14">
-      <p class="eyebrow mb-5" style="color:var(--blue);">Pilares do projeto</p>
+      <p class="eyebrow mb-5" style="color:var(--yellow);">Pilares do projeto</p>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        <div class="fade-in p-7 hard-shadow card-hover" style="background:#fff;border:2px solid var(--ink);">
+        <div class="fade-in p-7 hard-shadow card-hover" style="background:#fff;border:2px solid rgba(0,0,0,0.05);">
           <span class="numtag text-[40px]" style="color:var(--blue);">01</span>
           <div class="mt-3 mb-3"><i data-lucide="eye" style="width:24px;height:24px;color:var(--blue)"></i></div>
           <h4 class="font-display text-[28px] leading-none" style="color:var(--ink);">Conscientização</h4>
           <p class="font-archivo text-[13px] mt-3 leading-snug" style="color:var(--ink-soft);">Informar sobre os tipos de golpe e como funcionam psicologicamente.</p>
         </div>
-        <div class="fade-in p-7 hard-shadow card-hover" style="background:var(--yellow);border:2px solid var(--ink);">
+        <div class="fade-in p-7 hard-shadow card-hover" style="background:var(--yellow);border:2px solid rgba(0,0,0,0.08);">
           <span class="numtag text-[40px]" style="color:var(--blue);">02</span>
           <div class="mt-3 mb-3"><i data-lucide="monitor" style="width:24px;height:24px;color:var(--blue)"></i></div>
           <h4 class="font-display text-[28px] leading-none" style="color:var(--ink);">Inclusão digital</h4>
-          <p class="font-archivo text-[13px] mt-3 leading-snug" style="color:var(--ink-soft);">Promover o letramento digital com metodologia acessível para a terceira idade.</p>
+          <p class="font-archivo text-[13px] mt-3 leading-snug" style="color:var(--ink);">Promover o letramento digital com metodologia acessível para a terceira idade.</p>
         </div>
-        <div class="fade-in p-7 hard-shadow card-hover" style="background:#fff;border:2px solid var(--ink);">
+        <div class="fade-in p-7 hard-shadow card-hover" style="background:#fff;border:2px solid rgba(0,0,0,0.05);">
           <span class="numtag text-[40px]" style="color:var(--blue);">03</span>
           <div class="mt-3 mb-3"><i data-lucide="heart" style="width:24px;height:24px;color:var(--blue)"></i></div>
           <h4 class="font-display text-[28px] leading-none" style="color:var(--ink);">Apoio familiar</h4>
           <p class="font-archivo text-[13px] mt-3 leading-snug" style="color:var(--ink-soft);">Incentivar o suporte emocional e técnico de familiares no processo de inclusão.</p>
         </div>
-        <div class="fade-in p-7 hard-shadow card-hover" style="background:var(--blue);border:2px solid var(--ink);color:#fff;">
+        <div class="fade-in p-7 hard-shadow card-hover" style="background:var(--blue);border:2px solid rgba(0,0,0,0.05);color:#fff;">
           <span class="numtag text-[40px]" style="color:var(--yellow);">04</span>
           <div class="mt-3 mb-3"><i data-lucide="shield" style="width:24px;height:24px;color:var(--yellow)"></i></div>
           <h4 class="font-display text-[28px] leading-none">Proteção</h4>
-          <p class="font-archivo text-[13px] mt-3 leading-snug opacity-95">Fortalecer a autonomia digital e a segurança online das pessoas idosas.</p>
+          <p class="font-archivo text-[13px] mt-3 leading-snug opacity-90">Fortalecer a autonomia digital e a segurança online das pessoas idosas.</p>
         </div>
       </div>
     </div>
@@ -543,24 +528,24 @@
 </section>
 
 <!-- CRÉDITOS -->
-<section id="creditos" class="py-20 md:py-24" style="background:var(--yellow);">
+<section id="creditos" class="py-20 md:py-24" style="background:var(--paper);">
   <div class="max-w-7xl mx-auto px-6">
     <div class="grid md:grid-cols-12 gap-8 items-end mb-14">
       <div class="md:col-span-8 fade-in">
-        <p class="eyebrow" style="color:var(--blue);">06 · Créditos</p>
-        <h2 class="font-display text-[clamp(48px,7vw,108px)] mt-3 leading-none" style="color:var(--ink);">
-          quem está por <span style="color:var(--blue);">trás</span>
+        <p class="eyebrow" style="color:var(--yellow);">06 · Créditos</p>
+        <h2 class="font-display text-[clamp(48px,7vw,108px)] mt-3 leading-none" style="color:#fff;">
+          quem está por <span style="color:var(--yellow);">trás</span>
         </h2>
-        <p class="font-script text-[clamp(36px,5vw,72px)] -mt-2 leading-none" style="color:#fff;text-shadow:2px 2px 0 rgba(20,20,20,.18);">deste projeto</p>
+        <p class="font-script text-[clamp(36px,5vw,72px)] -mt-2 leading-none" style="color:#fff;text-shadow:2px 2px 0 rgba(0,0,0,.3);">deste projeto</p>
       </div>
-      <p class="md:col-span-4 font-archivo text-[14px] fade-in" style="color:var(--ink-soft);">
+      <p class="md:col-span-4 font-archivo text-[14px] fade-in" style="color:rgba(255,255,255,0.6);">
         Conheça os criadores e parceiros que tornaram este projeto de conscientização possível.
       </p>
     </div>
 
     <div class="grid md:grid-cols-12 gap-6">
       <!-- team -->
-      <div class="md:col-span-7 fade-in p-8 hard-shadow" style="background:#fff;border:2px solid var(--ink);">
+      <div class="md:col-span-7 fade-in p-8 hard-shadow" style="background:#fff;border:2px solid rgba(0,0,0,0.05);">
         <p class="eyebrow" style="color:var(--blue);">Equipe de desenvolvimento</p>
         <h3 class="font-display text-[36px] md:text-[44px] leading-none mt-2" style="color:var(--ink);">oito mãos<br>uma missão</h3>
         <ul class="mt-6 grid sm:grid-cols-2 gap-x-6 gap-y-3 font-archivo text-[14px]" style="color:var(--ink-soft);">
@@ -577,17 +562,17 @@
 
       <!-- acknowledgments + project info -->
       <div class="md:col-span-5 flex flex-col gap-6">
-        <div class="fade-in p-8 hard-shadow" style="background:var(--blue);color:#fff;border:2px solid var(--ink);">
+        <div class="fade-in p-8 hard-shadow" style="background:var(--blue);color:#fff;border:2px solid rgba(0,0,0,0.05);">
           <p class="eyebrow" style="color:var(--yellow);">Agradecimentos</p>
           <h3 class="font-display text-[34px] leading-none mt-2">orientação<br>&amp; apoio</h3>
           <p class="font-archivo text-[14px] mt-4 leading-relaxed opacity-95">
             Este projeto foi desenvolvido com orientação da <strong>professora Gabriela Hermes</strong>. Agradecemos aos pesquisadores especializados em envelhecimento digital, às comunidades de idosos que contribuíram com seus relatos e a todos cujos trabalhos científicos fundamentaram este estudo.
           </p>
         </div>
-        <div class="fade-in p-8 hard-shadow" style="background:#fff;border:2px solid var(--ink);">
+        <div class="fade-in p-8 hard-shadow" style="background:#fff;border:2px solid rgba(0,0,0,0.05);">
           <p class="eyebrow" style="color:var(--blue);">Sobre este projeto</p>
           <p class="font-archivo text-[14px] mt-3 leading-relaxed" style="color:var(--ink-soft);">
-            Desenvolvido como projeto acadêmico interdisciplinar, este site acompanha um documentário educativo (6–20 minutos) que explora a vulnerabilidade digital dos idosos no Brasil. O objetivo é <strong>conscientizar, informar e empoderar</strong> pessoas de todas as idades para proteger seus familiares e comunidades.
+            Desenvolvido como projeto acadêmico interdisciplinar, este site acompanha um documentário educativo (6–20 minutos) que explora a vulnerabilidade digital dos idosos no Brasil. O objetivo é <strong style="color:var(--ink);">conscientizar, informar e empoderar</strong> pessoas de todas as idades para proteger seus familiares e comunidades.
           </p>
         </div>
       </div>
@@ -596,13 +581,13 @@
 </section>
 
 <!-- FOOTER -->
-<footer class="py-12 border-t-2" style="background:var(--ink);color:var(--yellow);border-color:var(--ink);">
+<footer class="py-12 border-t-2" style="background:var(--ink);color:var(--yellow);border-color:var(--yellow);">
   <div class="max-w-7xl mx-auto px-6">
     <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
       <div>
         <div class="flex items-center gap-3">
-          <span class="w-10 h-10 rounded-full flex items-center justify-center" style="background:var(--blue);">
-            <i data-lucide="megaphone" style="width:18px;height:18px;color:#fff;"></i>
+          <span class="w-10 h-10 rounded-full flex items-center justify-center" style="background:var(--yellow);">
+            <i data-lucide="megaphone" style="width:18px;height:18px;color:var(--ink);"></i>
           </span>
           <span class="font-display text-[28px] leading-none">Entre Clicks &amp; Enganos</span>
         </div>
@@ -712,12 +697,12 @@
       <p class="font-archivo text-[16px] md:text-[17px] font-medium leading-relaxed mb-6" style="color:var(--ink);">${q.situation}</p>
       <div class="space-y-3" id="options-list">
         ${q.options.map((opt, i) => `
-          <button type="button" class="quiz-option w-full text-left p-4 border-2 font-archivo text-[14px]" style="border-color:var(--ink);background:#fff;color:var(--ink);" data-idx="${i}">
+          <button type="button" class="quiz-option w-full text-left p-4 border-2 font-archivo text-[14px]" style="border-color:rgba(0,0,0,0.18);background:#fff;color:var(--ink);" data-idx="${i}">
             <span class="font-display text-[20px] mr-2" style="color:var(--blue);">${String.fromCharCode(65 + i)}</span> ${opt}
           </button>
         `).join('')}
       </div>
-      <button type="button" id="next-btn" class="mt-7 inline-flex items-center gap-2 px-6 py-3 font-archivo font-bold text-[14px] hard-shadow opacity-40 pointer-events-none transition" style="background:var(--blue);color:#fff;" disabled>
+      <button type="button" id="next-btn" class="mt-7 inline-flex items-center gap-2 px-6 py-3 font-archivo font-bold text-[14px] hard-shadow opacity-40 pointer-events-none transition" style="background:var(--yellow);color:var(--ink);" disabled>
         ${currentQ < questions.length - 1 ? 'Próxima' : 'Ver resultado'}
         <i data-lucide="arrow-right" style="width:16px;height:16px"></i>
       </button>
