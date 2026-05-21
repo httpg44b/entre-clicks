@@ -17,14 +17,15 @@
     --yellow-cream:#FFD358;
     --blue:#003F66;
     --blue-deep:#002A45;
-    --blue-soft:rgba(0,63,102,0.2);
+    --blue-soft:rgba(0,63,102,0.15);
     --ink:#011B2F;
     --ink-soft:#1E3A4A;
-    --paper:#002A45;
+    --paper:#EAE6DC;
+    --cream:#F4F1EA;
     --white:#FFFFFF;
   }
   html{scroll-behavior:smooth}
-  body{font-family:'Inter',sans-serif;background:var(--ink);color:#fff;}
+  body{font-family:'Inter',sans-serif;background:#F4F1EA;color:var(--ink);}
   .font-display{font-family:'Anton',sans-serif;letter-spacing:-.005em;line-height:.92;text-transform:uppercase;}
   .font-script{font-family:'Caveat Brush',cursive;font-weight:400;}
   .font-archivo{font-family:'Archivo',sans-serif;}
@@ -73,92 +74,61 @@
   .hard-shadow-yellow{box-shadow:6px 6px 0 0 var(--yellow-deep);}
   .skew-tag{display:inline-block;transform:rotate(-2deg);background:var(--yellow);color:var(--ink);padding:.35rem .8rem;}
   ::selection{background:var(--yellow);color:var(--ink);}
-
-  /* ── Ícones decorativos halftone ───────────────────────────────────── */
-  .deco{
-    position:absolute;
-    pointer-events:none;
-    user-select:none;
-    z-index:0;
-    will-change:transform;
-  }
-  @keyframes float-a{
-    0%,100%{transform:translateY(0px) rotate(var(--r,0deg));}
-    50%{transform:translateY(-14px) rotate(var(--r,0deg));}
-  }
-  @keyframes float-b{
-    0%,100%{transform:translateY(-7px) rotate(var(--r,0deg));}
-    50%{transform:translateY(9px) rotate(var(--r,0deg));}
-  }
-  @keyframes float-c{
-    0%,100%{transform:translateY(5px) rotate(var(--r,0deg));}
-    50%{transform:translateY(-11px) rotate(var(--r,0deg));}
-  }
-  .fa{animation:float-a 5.4s ease-in-out infinite;}
-  .fb{animation:float-b 4.8s ease-in-out infinite;}
-  .fc{animation:float-c 6.2s ease-in-out infinite;}
-  @media(max-width:767px){.deco{display:none;}}
 </style>
 </head>
 <body class="min-h-screen">
 
 <!-- NAV -->
-<nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur" style="background:rgba(1,27,47,.95);border-bottom:1px solid rgba(255,185,21,.18);">
+<nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur" style="background:rgba(244,241,234,.97);border-bottom:2px solid rgba(1,27,47,.12);">
   <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
     <a href="#hero" class="flex items-center gap-2.5">
       <span class="w-8 h-8 rounded-full flex items-center justify-center" style="background:var(--yellow);">
         <i data-lucide="megaphone" style="width:16px;height:16px;color:var(--ink);"></i>
       </span>
-      <span class="font-archivo font-extrabold text-[15px] tracking-tight" style="color:#fff;">Entre Clicks <span style="color:var(--yellow);">&amp;</span> Enganos</span>
+      <span class="font-archivo font-extrabold text-[15px] tracking-tight" style="color:var(--ink);">Entre Clicks <span style="color:var(--yellow);">&amp;</span> Enganos</span>
     </a>
     <div class="hidden md:flex gap-7 text-[13px] font-archivo font-semibold">
-      <a href="#problema" class="nav-link" style="color:rgba(255,255,255,0.75);">O Problema</a>
-      <a href="#dados" class="nav-link" style="color:rgba(255,255,255,0.75);">Dados</a>
-      <a href="#pesquisa" class="nav-link" style="color:rgba(255,255,255,0.75);">Pesquisa</a>
-      <a href="#quiz" class="nav-link" style="color:rgba(255,255,255,0.75);">Quiz</a>
-      <a href="#sobre" class="nav-link" style="color:rgba(255,255,255,0.75);">Sobre</a>
-      <a href="#creditos" class="nav-link" style="color:rgba(255,255,255,0.75);">Créditos</a>
+      <a href="#problema" class="nav-link" style="color:rgba(1,27,47,0.7);">O Problema</a>
+      <a href="#dados" class="nav-link" style="color:rgba(1,27,47,0.7);">Dados</a>
+      <a href="#pesquisa" class="nav-link" style="color:rgba(1,27,47,0.7);">Pesquisa</a>
+      <a href="#quiz" class="nav-link" style="color:rgba(1,27,47,0.7);">Quiz</a>
+      <a href="#sobre" class="nav-link" style="color:rgba(1,27,47,0.7);">Sobre</a>
+      <a href="#creditos" class="nav-link" style="color:rgba(1,27,47,0.7);">Créditos</a>
     </div>
-    <button id="mobile-menu-btn" class="md:hidden" style="color:#fff;"><i data-lucide="menu" style="width:22px;height:22px"></i></button>
+    <button id="mobile-menu-btn" class="md:hidden" style="color:var(--ink);"><i data-lucide="menu" style="width:22px;height:22px"></i></button>
   </div>
-  <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 flex flex-col gap-3 text-sm font-archivo font-semibold" style="background:var(--ink);">
-    <a href="#problema" style="color:rgba(255,255,255,0.8);">O Problema</a><a href="#dados" style="color:rgba(255,255,255,0.8);">Dados</a><a href="#pesquisa" style="color:rgba(255,255,255,0.8);">Pesquisa</a><a href="#quiz" style="color:rgba(255,255,255,0.8);">Quiz</a><a href="#sobre" style="color:rgba(255,255,255,0.8);">Sobre</a><a href="#creditos" style="color:rgba(255,255,255,0.8);">Créditos</a>
+  <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 flex flex-col gap-3 text-sm font-archivo font-semibold" style="background:#F4F1EA;">
+    <a href="#problema" style="color:rgba(1,27,47,0.8);">O Problema</a><a href="#dados" style="color:rgba(1,27,47,0.8);">Dados</a><a href="#pesquisa" style="color:rgba(1,27,47,0.8);">Pesquisa</a><a href="#quiz" style="color:rgba(1,27,47,0.8);">Quiz</a><a href="#sobre" style="color:rgba(1,27,47,0.8);">Sobre</a><a href="#creditos" style="color:rgba(1,27,47,0.8);">Créditos</a>
   </div>
 </nav>
 
 <!-- ══════════════════════════════════════════════════════ HERO -->
-<section id="hero" class="relative pt-24 pb-16 md:pt-28 md:pb-20 overflow-hidden" style="background:var(--ink);">
-
-  <!-- Ícones decorativos HERO -->
-  <img src="icons/03_megafone_mao.png"      class="deco fa" style="right:-24px;top:72px;width:175px;opacity:.62;--r:-9deg;animation-delay:0s">
-  <img src="icons/10_raio.png"              class="deco fb" style="left:18px;bottom:60px;width:78px;opacity:.38;--r:14deg;animation-delay:.8s">
-  <img src="icons/08_explosao_estrela.png"  class="deco fc" style="right:22%;top:14%;width:72px;opacity:.42;--r:6deg;animation-delay:1.6s">
-  <img src="icons/02_linhas_scribble.png"   class="deco fa" style="left:5%;top:26%;width:66px;opacity:.35;--r:-12deg;animation-delay:2.4s">
+<section id="hero" class="relative pt-24 pb-16 md:pt-28 md:pb-20 overflow-hidden" style="background:#F4F1EA;">
 
   <div class="max-w-7xl mx-auto px-6" style="position:relative;z-index:1;">
-    <p class="eyebrow flex items-center" style="color:rgba(255,255,255,0.4);">Entre Clicks · Projeto Acadêmico <span class="rule"></span></p>
+    <p class="eyebrow flex items-center" style="color:rgba(1,27,47,0.45);">Entre Clicks · Projeto Acadêmico <span class="rule"></span></p>
 
     <div class="grid md:grid-cols-12 gap-8 items-end mt-6 md:mt-8">
       <div class="md:col-span-8">
-        <h1 class="font-display text-[clamp(72px,13vw,200px)]" style="color:var(--yellow);">
+        <h1 class="font-display text-[clamp(72px,13vw,200px)]" style="color:var(--blue);">
           Entre<br>Clicks<br>
           <span style="display:inline-block;">&amp;</span> Enganos
         </h1>
-        <p class="font-script text-white text-[clamp(40px,7vw,88px)] -mt-3 md:-mt-6 leading-none" style="text-shadow:2px 2px 0 rgba(0,0,0,.5);">
+        <p class="font-script text-[clamp(40px,7vw,88px)] -mt-3 md:-mt-6 leading-none" style="color:var(--ink);">
           vulnerabilidade digital &amp; a&nbsp;terceira idade
         </p>
       </div>
       <div class="md:col-span-4">
         <div class="max-w-sm">
-          <p class="eyebrow mb-3" style="color:rgba(255,255,255,0.4);">o que é isto</p>
-          <p class="text-[15px] leading-relaxed font-archivo" style="color:rgba(255,255,255,0.8);">
+          <p class="eyebrow mb-3" style="color:rgba(1,27,47,0.45);">o que é isto</p>
+          <p class="text-[15px] leading-relaxed font-archivo" style="color:rgba(1,27,47,0.72);">
             Como golpes virtuais, fake&nbsp;news e a exclusão digital afetam a vida e a saúde das pessoas idosas no Brasil — e o que podemos fazer sobre isso.
           </p>
           <div class="flex flex-wrap gap-3 mt-6">
             <a href="#quiz" class="inline-flex items-center gap-2 px-5 py-3 font-archivo font-bold text-[14px] hard-shadow" style="background:var(--yellow);color:var(--ink);">
               Fazer o Quiz <i data-lucide="arrow-right" style="width:16px;height:16px"></i>
             </a>
-            <a href="#problema" class="inline-flex items-center gap-2 px-5 py-3 font-archivo font-bold text-[14px] border-2" style="background:transparent;color:#fff;border-color:rgba(255,255,255,0.3);">
+            <a href="#problema" class="inline-flex items-center gap-2 px-5 py-3 font-archivo font-bold text-[14px] border-2" style="background:transparent;color:var(--ink);border-color:rgba(1,27,47,0.35);">
               Ver o Problema
             </a>
           </div>
@@ -166,22 +136,22 @@
       </div>
     </div>
 
-    <div class="mt-12 md:mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 border-t-2 border-b-2 py-5" style="border-color:rgba(255,255,255,0.1);">
+    <div class="mt-12 md:mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 border-t-2 border-b-2 py-5" style="border-color:rgba(1,27,47,0.12);">
       <div>
-        <p class="eyebrow" style="color:rgba(255,255,255,0.38);">edição</p>
-        <p class="font-archivo font-bold text-[15px] mt-1" style="color:rgba(255,255,255,0.9);">v.01 · 2025</p>
+        <p class="eyebrow" style="color:rgba(1,27,47,0.4);">edição</p>
+        <p class="font-archivo font-bold text-[15px] mt-1" style="color:var(--ink);">v.01 · 2025</p>
       </div>
       <div>
-        <p class="eyebrow" style="color:rgba(255,255,255,0.38);">formato</p>
-        <p class="font-archivo font-bold text-[15px] mt-1" style="color:rgba(255,255,255,0.9);">Site + Documentário</p>
+        <p class="eyebrow" style="color:rgba(1,27,47,0.4);">formato</p>
+        <p class="font-archivo font-bold text-[15px] mt-1" style="color:var(--ink);">Site + Documentário</p>
       </div>
       <div>
-        <p class="eyebrow" style="color:rgba(255,255,255,0.38);">duração</p>
-        <p class="font-archivo font-bold text-[15px] mt-1" style="color:rgba(255,255,255,0.9);">6–20 minutos</p>
+        <p class="eyebrow" style="color:rgba(1,27,47,0.4);">duração</p>
+        <p class="font-archivo font-bold text-[15px] mt-1" style="color:var(--ink);">6–20 minutos</p>
       </div>
       <div>
-        <p class="eyebrow" style="color:rgba(255,255,255,0.38);">base</p>
-        <p class="font-archivo font-bold text-[15px] mt-1" style="color:rgba(255,255,255,0.9);">Revisão científica</p>
+        <p class="eyebrow" style="color:rgba(1,27,47,0.4);">base</p>
+        <p class="font-archivo font-bold text-[15px] mt-1" style="color:var(--ink);">Revisão científica</p>
       </div>
     </div>
   </div>
@@ -196,22 +166,17 @@
 </div>
 
 <!-- ══════════════════════════════════════════════════ STATS BANNER -->
-<section class="relative py-16 md:py-20 overflow-hidden" style="background:var(--paper);">
-
-  <!-- Ícones decorativos STATS -->
-  <img src="icons/09_relogio_alarme.png" class="deco fb" style="left:-30px;top:50%;transform:translateY(-50%) rotate(-6deg);width:220px;opacity:.09;animation-delay:0s">
-  <img src="icons/05_lampada.png"        class="deco fa" style="right:24px;bottom:28px;width:115px;opacity:.52;--r:8deg;animation-delay:1.1s">
-  <img src="icons/16_polegar.png"        class="deco fc" style="right:200px;top:20px;width:90px;opacity:.28;--r:-5deg;animation-delay:2.2s">
+<section class="relative py-16 md:py-20 overflow-hidden" style="background:#EAE6DC;">
 
   <div class="max-w-7xl mx-auto px-6" style="position:relative;z-index:1;">
     <div class="flex items-end justify-between flex-wrap gap-4 mb-10">
       <div>
-        <p class="eyebrow" style="color:var(--yellow);">Projeção IBGE · 2070</p>
-        <h2 class="font-display text-[clamp(40px,6.5vw,86px)] mt-2" style="color:#fff;">
-          o brasil <span style="color:var(--yellow);">envelhece</span> rápido
+        <p class="eyebrow" style="color:var(--yellow-deep);">Projeção IBGE · 2070</p>
+        <h2 class="font-display text-[clamp(40px,6.5vw,86px)] mt-2" style="color:var(--ink);">
+          o brasil <span style="color:var(--blue);">envelhece</span> rápido
         </h2>
       </div>
-      <p class="font-script text-[40px] md:text-[56px] text-white leading-none" style="text-shadow:2px 2px 0 rgba(0,0,0,.4);">e a&nbsp;internet&nbsp;não&nbsp;espera.</p>
+      <p class="font-script text-[40px] md:text-[56px] leading-none" style="color:var(--ink);">e a&nbsp;internet&nbsp;não&nbsp;espera.</p>
     </div>
 
     <div class="grid md:grid-cols-3 gap-6">
@@ -241,24 +206,19 @@
 </section>
 
 <!-- ════════════════════════════════════════════════ O PROBLEMA -->
-<section id="problema" class="relative py-20 md:py-24 overflow-hidden" style="background:var(--ink);">
-
-  <!-- Ícones decorativos PROBLEMA -->
-  <img src="icons/11_exclamacao.png"  class="deco fa" style="right:-8px;top:60px;width:100px;opacity:.48;--r:-6deg;animation-delay:0s">
-  <img src="icons/15_cerebro.png"     class="deco fb" style="left:12px;bottom:80px;width:130px;opacity:.38;--r:8deg;animation-delay:1.3s">
-  <img src="icons/06_labios_azul.png" class="deco fc" style="right:18%;bottom:40px;width:85px;opacity:.25;--r:-10deg;animation-delay:2.5s">
+<section id="problema" class="relative py-20 md:py-24 overflow-hidden" style="background:#F4F1EA;">
 
   <div class="max-w-7xl mx-auto px-6" style="position:relative;z-index:1;">
     <div class="grid md:grid-cols-12 gap-8 items-start mb-14">
       <div class="md:col-span-7 fade-in">
-        <p class="eyebrow" style="color:var(--yellow);">01 · O Problema</p>
-        <h2 class="font-display text-[clamp(48px,7vw,108px)] mt-3 leading-none" style="color:#fff;">
+        <p class="eyebrow" style="color:var(--yellow-deep);">01 · O Problema</p>
+        <h2 class="font-display text-[clamp(48px,7vw,108px)] mt-3 leading-none" style="color:var(--ink);">
           Excesso <span class="font-script normal-case" style="color:var(--yellow);font-family:'Caveat Brush',cursive;letter-spacing:0;">&amp;</span> escassez:
         </h2>
-        <p class="font-script text-[clamp(36px,5.5vw,72px)] -mt-2 leading-none" style="color:var(--yellow-soft);">dois lados da mesma crise</p>
+        <p class="font-script text-[clamp(36px,5.5vw,72px)] -mt-2 leading-none" style="color:var(--blue);">dois lados da mesma crise</p>
       </div>
       <div class="md:col-span-5 fade-in">
-        <p class="font-archivo text-[15px] md:text-[16px] leading-relaxed mt-2" style="color:rgba(255,255,255,0.68);">
+        <p class="font-archivo text-[15px] md:text-[16px] leading-relaxed mt-2" style="color:rgba(1,27,47,0.68);">
           A vulnerabilidade digital dos idosos nasce de uma contradição: há informação demais e suporte de menos. Esses dois fatores, juntos, criam um terreno fértil para golpes e desinformação.
         </p>
       </div>
@@ -310,20 +270,15 @@
 </section>
 
 <!-- ════════════════════════════════════════════════════ DADOS -->
-<section id="dados" class="relative py-20 md:py-24 overflow-hidden" style="background:var(--paper);">
-
-  <!-- Ícones decorativos DADOS -->
-  <img src="icons/13_notebook.png"    class="deco fa" style="right:18px;top:30px;width:115px;opacity:.48;--r:-10deg;animation-delay:0s">
-  <img src="icons/24_wifi_azul.png"   class="deco fc" style="left:14px;bottom:34px;width:88px;opacity:.38;--r:7deg;animation-delay:1s">
-  <img src="icons/04_bolhas_chat.png" class="deco fb" style="right:12px;bottom:60px;width:80px;opacity:.3;--r:12deg;animation-delay:2s">
+<section id="dados" class="relative py-20 md:py-24 overflow-hidden" style="background:#EAE6DC;">
 
   <div class="max-w-7xl mx-auto px-6" style="position:relative;z-index:1;">
     <div class="flex items-end justify-between flex-wrap gap-6 mb-12">
       <div class="fade-in">
-        <p class="eyebrow" style="color:var(--yellow);">02 · Dados</p>
-        <h2 class="font-display text-[clamp(48px,7vw,108px)] mt-3 leading-none" style="color:#fff;">números que<br><span style="color:var(--yellow);">precisam</span> ser&nbsp;vistos</h2>
+        <p class="eyebrow" style="color:var(--yellow-deep);">02 · Dados</p>
+        <h2 class="font-display text-[clamp(48px,7vw,108px)] mt-3 leading-none" style="color:var(--ink);">números que<br><span style="color:var(--blue);">precisam</span> ser&nbsp;vistos</h2>
       </div>
-      <p class="font-archivo text-[14px] max-w-xs fade-in" style="color:rgba(255,255,255,0.6);">
+      <p class="font-archivo text-[14px] max-w-xs fade-in" style="color:rgba(1,27,47,0.62);">
         Baseados em estudos científicos revisados por pares, publicados entre 2020 e 2025.
       </p>
     </div>
@@ -382,22 +337,17 @@
 </section>
 
 <!-- ════════════════════════════════════════════════ PESQUISA -->
-<section id="pesquisa" class="relative py-20 md:py-24 overflow-hidden" style="background:var(--ink);">
-
-  <!-- Ícones decorativos PESQUISA -->
-  <img src="icons/29_icon_29.png"       class="deco fb" style="right:-22px;top:80px;width:145px;opacity:.42;--r:7deg;animation-delay:0s">
-  <img src="icons/18_lupa_mao.png"      class="deco fa" style="left:8px;bottom:50px;width:115px;opacity:.4;--r:-14deg;animation-delay:1.4s">
-  <img src="icons/20_jornal_packer.png" class="deco fc" style="left:6%;top:12%;width:95px;opacity:.22;--r:-8deg;animation-delay:2.8s">
+<section id="pesquisa" class="relative py-20 md:py-24 overflow-hidden" style="background:#F4F1EA;">
 
   <div class="max-w-7xl mx-auto px-6" style="position:relative;z-index:1;">
     <div class="grid md:grid-cols-12 gap-8 items-end mb-12">
       <div class="md:col-span-8 fade-in">
-        <p class="eyebrow" style="color:var(--yellow);">03 · Pesquisa</p>
-        <h2 class="font-display text-[clamp(48px,7vw,108px)] mt-3 leading-none" style="color:#fff;">
-          pesquisas que<br><span style="color:var(--yellow);">fundamentam</span> este projeto
+        <p class="eyebrow" style="color:var(--yellow-deep);">03 · Pesquisa</p>
+        <h2 class="font-display text-[clamp(48px,7vw,108px)] mt-3 leading-none" style="color:var(--ink);">
+          pesquisas que<br><span style="color:var(--blue);">fundamentam</span> este projeto
         </h2>
       </div>
-      <p class="md:col-span-4 font-archivo text-[14px] fade-in" style="color:rgba(255,255,255,0.6);">
+      <p class="md:col-span-4 font-archivo text-[14px] fade-in" style="color:rgba(1,27,47,0.6);">
         Este projeto se baseia em artigos científicos revisados por pares, publicados em revistas nacionais e internacionais entre 2020 e 2025.
       </p>
     </div>
@@ -462,22 +412,16 @@
 </section>
 
 <!-- ══════════════════════════════════════════════════════ QUIZ -->
-<section id="quiz" class="relative py-20 md:py-24 overflow-hidden" style="background:var(--paper);">
-  <div class="absolute right-[-60px] bottom-[-40px] w-[280px] h-[280px] hidden lg:block opacity-15 halftone rounded-full"></div>
-
-  <!-- Ícones decorativos QUIZ -->
-  <img src="icons/04_bolhas_chat.png"     class="deco fc" style="left:-10px;top:70px;width:96px;opacity:.38;--r:-8deg;animation-delay:0s">
-  <img src="icons/08_explosao_estrela.png" class="deco fa" style="right:50px;top:36px;width:68px;opacity:.42;--r:5deg;animation-delay:.9s">
-  <img src="icons/17_mao_celular_texto.png" class="deco fb" style="right:-16px;bottom:100px;width:110px;opacity:.35;--r:10deg;animation-delay:1.8s">
+<section id="quiz" class="relative py-20 md:py-24 overflow-hidden" style="background:#EAE6DC;">
 
   <div class="max-w-4xl mx-auto px-6" style="position:relative;z-index:1;">
     <div class="text-center mb-10 fade-in">
-      <p class="eyebrow" style="color:var(--yellow);">04 · Quiz</p>
-      <h2 class="font-display text-[clamp(48px,7vw,108px)] mt-3 leading-none" style="color:#fff;">
+      <p class="eyebrow" style="color:var(--yellow-deep);">04 · Quiz</p>
+      <h2 class="font-display text-[clamp(48px,7vw,108px)] mt-3 leading-none" style="color:var(--ink);">
         você saberia<br>identificar
       </h2>
-      <p class="font-script text-[clamp(40px,6vw,80px)] leading-none -mt-1" style="color:var(--yellow);">um golpe digital?</p>
-      <p class="font-archivo text-[14px] max-w-xl mx-auto mt-6" style="color:rgba(255,255,255,0.62);">
+      <p class="font-script text-[clamp(40px,6vw,80px)] leading-none -mt-1" style="color:var(--blue);">um golpe digital?</p>
+      <p class="font-archivo text-[14px] max-w-xl mx-auto mt-6" style="color:rgba(1,27,47,0.62);">
         Teste seus conhecimentos sobre situações reais de golpes e fake news que afetam pessoas idosas. Cada pergunta é baseada em casos documentados pela pesquisa científica.
       </p>
     </div>
@@ -510,24 +454,19 @@
 </section>
 
 <!-- ══════════════════════════════════════════════════ SOBRE -->
-<section id="sobre" class="relative py-20 md:py-24 overflow-hidden" style="background:var(--ink);">
-
-  <!-- Ícones decorativos SOBRE -->
-  <img src="icons/26_icon_26.png"   class="deco fb" style="right:-28px;bottom:50px;width:210px;opacity:.36;--r:5deg;animation-delay:0s">
-  <img src="icons/01_boca_halftone.png" class="deco fc" style="left:16px;bottom:36px;width:78px;opacity:.28;--r:-10deg;animation-delay:1.5s">
-  <img src="icons/12_mao_celular_direita.png" class="deco fa" style="left:5%;top:10%;width:90px;opacity:.22;--r:-5deg;animation-delay:2.8s">
+<section id="sobre" class="relative py-20 md:py-24 overflow-hidden" style="background:#F4F1EA;">
 
   <div class="max-w-7xl mx-auto px-6" style="position:relative;z-index:1;">
     <div class="grid md:grid-cols-12 gap-10 items-start">
       <div class="md:col-span-7 fade-in">
-        <p class="eyebrow" style="color:var(--yellow);">05 · Sobre</p>
-        <h2 class="font-display text-[clamp(48px,7vw,108px)] mt-3 leading-none" style="color:#fff;">
+        <p class="eyebrow" style="color:var(--yellow-deep);">05 · Sobre</p>
+        <h2 class="font-display text-[clamp(48px,7vw,108px)] mt-3 leading-none" style="color:var(--ink);">
           uma proposta de
         </h2>
-        <p class="font-script text-[clamp(40px,6vw,84px)] -mt-1 leading-none" style="color:var(--yellow);">conscientização</p>
+        <p class="font-script text-[clamp(40px,6vw,84px)] -mt-1 leading-none" style="color:var(--blue);">conscientização</p>
 
-        <div class="mt-7 space-y-4 font-archivo text-[15px] leading-relaxed" style="color:rgba(255,255,255,0.72);">
-          <p>Este projeto acadêmico propõe a criação de um <strong style="color:#fff;">mini documentário (6–10 minutos)</strong> acompanhado deste website interativo, abordando a vulnerabilidade digital das pessoas idosas no Brasil.</p>
+        <div class="mt-7 space-y-4 font-archivo text-[15px] leading-relaxed" style="color:rgba(1,27,47,0.72);">
+          <p>Este projeto acadêmico propõe a criação de um <strong style="color:var(--ink);">mini documentário (6–10 minutos)</strong> acompanhado deste website interativo, abordando a vulnerabilidade digital das pessoas idosas no Brasil.</p>
           <p>Com base em revisão sistemática da literatura científica, o projeto explora os fatores que tornam os idosos mais susceptíveis a golpes e fake news — cognitivos, emocionais e sociais — e apresenta caminhos de proteção.</p>
           <p>A proposta reforça que estratégias educativas humanizadas e adaptadas à realidade dos idosos são essenciais para promover a inclusão digital, a autonomia e um envelhecimento ativo e saudável.</p>
         </div>
@@ -549,7 +488,7 @@
     </div>
 
     <div class="mt-14">
-      <p class="eyebrow mb-5" style="color:var(--yellow);">Pilares do projeto</p>
+      <p class="eyebrow mb-5" style="color:var(--yellow-deep);">Pilares do projeto</p>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
         <div class="fade-in p-7 hard-shadow card-hover" style="background:#fff;border:2px solid rgba(0,0,0,0.05);">
           <span class="numtag text-[40px]" style="color:var(--blue);">01</span>
@@ -581,23 +520,18 @@
 </section>
 
 <!-- ════════════════════════════════════════════════ CRÉDITOS -->
-<section id="creditos" class="relative py-20 md:py-24 overflow-hidden" style="background:var(--paper);">
-
-  <!-- Ícones decorativos CRÉDITOS -->
-  <img src="icons/21_gato.png"      class="deco fa" style="left:10px;bottom:70px;width:130px;opacity:.44;--r:-5deg;animation-delay:0s">
-  <img src="icons/28_icon_28.png"   class="deco fc" style="right:16px;top:50px;width:125px;opacity:.4;--r:9deg;animation-delay:1.2s">
-  <img src="icons/10_raio.png"      class="deco fb" style="right:42%;bottom:30px;width:65px;opacity:.28;--r:-8deg;animation-delay:2.4s">
+<section id="creditos" class="relative py-20 md:py-24 overflow-hidden" style="background:#EAE6DC;">
 
   <div class="max-w-7xl mx-auto px-6" style="position:relative;z-index:1;">
     <div class="grid md:grid-cols-12 gap-8 items-end mb-14">
       <div class="md:col-span-8 fade-in">
-        <p class="eyebrow" style="color:var(--yellow);">06 · Créditos</p>
-        <h2 class="font-display text-[clamp(48px,7vw,108px)] mt-3 leading-none" style="color:#fff;">
-          quem está por <span style="color:var(--yellow);">trás</span>
+        <p class="eyebrow" style="color:var(--yellow-deep);">06 · Créditos</p>
+        <h2 class="font-display text-[clamp(48px,7vw,108px)] mt-3 leading-none" style="color:var(--ink);">
+          quem está por <span style="color:var(--blue);">trás</span>
         </h2>
-        <p class="font-script text-[clamp(36px,5vw,72px)] -mt-2 leading-none" style="color:#fff;text-shadow:2px 2px 0 rgba(0,0,0,.3);">deste projeto</p>
+        <p class="font-script text-[clamp(36px,5vw,72px)] -mt-2 leading-none" style="color:var(--ink);">deste projeto</p>
       </div>
-      <p class="md:col-span-4 font-archivo text-[14px] fade-in" style="color:rgba(255,255,255,0.6);">
+      <p class="md:col-span-4 font-archivo text-[14px] fade-in" style="color:rgba(1,27,47,0.6);">
         Conheça os criadores e parceiros que tornaram este projeto de conscientização possível.
       </p>
     </div>
@@ -637,10 +571,7 @@
 </section>
 
 <!-- FOOTER -->
-<footer class="relative py-12 border-t-2 overflow-hidden" style="background:var(--ink);color:var(--yellow);border-color:var(--yellow);">
-
-  <!-- Ícone decorativo FOOTER -->
-  <img src="icons/07_megafone_gritando.png" class="deco" style="right:-30px;bottom:-10px;width:240px;opacity:.07;--r:-5deg;">
+<footer class="relative py-12 border-t-2 overflow-hidden" style="background:#F4F1EA;color:var(--ink);border-color:rgba(1,27,47,.18);">
 
   <div class="max-w-7xl mx-auto px-6" style="position:relative;z-index:1;">
     <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
@@ -649,14 +580,14 @@
           <span class="w-10 h-10 rounded-full flex items-center justify-center" style="background:var(--yellow);">
             <i data-lucide="megaphone" style="width:18px;height:18px;color:var(--ink);"></i>
           </span>
-          <span class="font-display text-[28px] leading-none">Entre Clicks &amp; Enganos</span>
+          <span class="font-display text-[28px] leading-none" style="color:var(--ink);">Entre Clicks &amp; Enganos</span>
         </div>
-        <p class="font-script text-[40px] leading-none mt-3" style="color:#fff;">obrigado por chegar até aqui.</p>
+        <p class="font-script text-[40px] leading-none mt-3" style="color:var(--blue);">obrigado por chegar até aqui.</p>
       </div>
       <div class="md:text-right">
-        <p class="font-archivo text-[13px] opacity-90">Projeto acadêmico · Vulnerabilidade Digital e a Terceira Idade</p>
-        <p class="font-archivo text-[11px] opacity-60 mt-1">Baseado em pesquisas científicas publicadas entre 2019 e 2025</p>
-        <p class="font-archivo text-[11px] opacity-60">Documentário: até 20 minutos · Site v.01 · 2025</p>
+        <p class="font-archivo text-[13px]" style="color:rgba(1,27,47,0.75);">Projeto acadêmico · Vulnerabilidade Digital e a Terceira Idade</p>
+        <p class="font-archivo text-[11px] mt-1" style="color:rgba(1,27,47,0.5);">Baseado em pesquisas científicas publicadas entre 2019 e 2025</p>
+        <p class="font-archivo text-[11px]" style="color:rgba(1,27,47,0.5);">Documentário: até 20 minutos · Site v.01 · 2025</p>
       </div>
     </div>
   </div>
